@@ -1,7 +1,6 @@
 import { useAuthStore } from '@/store/auth';
 import { Header } from '@/components/layout/Header';
 import { LoginForm } from '@/components/auth/LoginForm';
-import { TaskList } from '@/components/tasks/TaskList';
 import { ApiStatus } from '@/components/dashboard/ApiStatus';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -86,22 +85,28 @@ const Index = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="tasks" className="space-y-6">
+          <Tabs defaultValue="transactions" className="space-y-6">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="tasks">Tasks</TabsTrigger>
+              <TabsTrigger value="transactions">Transactions</TabsTrigger>
               <TabsTrigger value="api">API Status</TabsTrigger>
               <TabsTrigger value="hooks">Hooks Demo</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="tasks" className="space-y-6">
+            <TabsContent value="transactions" className="space-y-6">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold">Your Tasks</h3>
+                <h3 className="text-xl font-semibold">Your Transactions</h3>
                 <Button className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
                   <Plus className="h-4 w-4 mr-2" />
-                  Add Task
+                  New Swap
                 </Button>
               </div>
-              <TaskList />
+              <Card className="bg-gradient-card border-accent/20">
+                <CardContent className="p-6">
+                  <p className="text-muted-foreground text-center">
+                    Crypto swap transactions will appear here
+                  </p>
+                </CardContent>
+              </Card>
             </TabsContent>
 
             <TabsContent value="api" className="space-y-6">
@@ -150,17 +155,27 @@ const Index = () => {
                           <li>• <code className="bg-secondary/50 px-1 rounded">useRegister()</code> - Register mutation</li>
                           <li>• <code className="bg-secondary/50 px-1 rounded">useCurrentUser()</code> - Get current user</li>
                           <li>• <code className="bg-secondary/50 px-1 rounded">useLogout()</code> - Logout mutation</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useChangePassword()</code> - Change password</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useVerifyOtp()</code> - Verify OTP</li>
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-primary mb-2">Tasks</h4>
+                        <h4 className="font-semibold text-primary mb-2">Swap Operations</h4>
                         <ul className="space-y-1 ml-4">
-                          <li>• <code className="bg-secondary/50 px-1 rounded">useTasks()</code> - Get tasks with pagination</li>
-                          <li>• <code className="bg-secondary/50 px-1 rounded">useTask(id)</code> - Get single task</li>
-                          <li>• <code className="bg-secondary/50 px-1 rounded">useCreateTask()</code> - Create task mutation</li>
-                          <li>• <code className="bg-secondary/50 px-1 rounded">useUpdateTask()</code> - Update task mutation</li>
-                          <li>• <code className="bg-secondary/50 px-1 rounded">useDeleteTask()</code> - Delete task mutation</li>
-                          <li>• <code className="bg-secondary/50 px-1 rounded">useToggleTask()</code> - Toggle completion</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useCreateCoinSwap()</code> - Create swap</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useCalculateRate()</code> - Calculate NGN rate</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useTransactions()</code> - Get transactions</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useTransaction(ref)</code> - Get single transaction</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useUsdRate()</code> - Get USDT rate</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-primary mb-2">Banking</h4>
+                        <ul className="space-y-1 ml-4">
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useBankDetails()</code> - Get bank details</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useCreateBankDetails()</code> - Save bank details</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useVerifyAccount()</code> - Verify account</li>
+                          <li>• <code className="bg-secondary/50 px-1 rounded">useSubmitSupport()</code> - Submit support ticket</li>
                         </ul>
                       </div>
                     </div>

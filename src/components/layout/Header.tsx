@@ -36,7 +36,7 @@ export const Header = () => {
             <span className="text-white font-bold text-sm">API</span>
           </div>
           <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            React Query API Demo
+            Crypto Swap API
           </h1>
         </div>
 
@@ -45,9 +45,9 @@ export const Header = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                 <Avatar className="h-10 w-10">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage src={user.photo} alt={user.fullname} />
                   <AvatarFallback className="bg-gradient-primary text-white">
-                    {getInitials(user.name)}
+                    {getInitials(user.fullname)}
                   </AvatarFallback>
                 </Avatar>
               </Button>
@@ -55,7 +55,7 @@ export const Header = () => {
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">{user.name}</p>
+                  <p className="text-sm font-medium leading-none">{user.fullname}</p>
                   <p className="text-xs leading-none text-muted-foreground">
                     {user.email}
                   </p>

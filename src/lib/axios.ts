@@ -44,11 +44,11 @@ api.interceptors.response.use(
         if (refreshToken && token) {
           try {
             const refreshResponse = await axios.post(
-              `${import.meta.env.VITE_API_URL}/auth/refresh`,
-              { refreshToken }
+              `${import.meta.env.VITE_API_URL || 'http://test-release-4e15b3080353.herokuapp.com'}/users/login/refresh`,
+              { refresh: refreshToken }
             );
             
-            const { token: newToken } = refreshResponse.data;
+            const { access: newToken } = refreshResponse.data;
             useAuthStore.getState().setToken(newToken);
             
             // Retry the original request with new token
